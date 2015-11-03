@@ -21,28 +21,28 @@
       </button>
       <a class="navbar-brand" href="#">Reporter</a>
     </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class=""><a href="#">Home</a>
-        </li>
-        <li><a href="#about">About</a>
-        </li>
-        <li><a href="#contact">Contact</a>
-        </li>
-      </ul>
-    </div>
-    <!--/.nav-collapse -->
   </div>
 </div>
 
-<div ng-controller="indexController" id="body-content">
-  {{greeting}}
-  <ul>
-    <li ng-repeat="key in fileList">{{key.Key}}</li>
-  </ul>
 
-  <!--{{fileList}}-->
+<div ng-controller="indexController" id="body-content">
+  <table datatable="ng" class="row-border hover">
+    <thead>
+    <tr>
+      <th>File Name</th>
+      <th>Last Modified</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="key in fileList">
+        <td>{{ key.Key[0] }}</td>
+        <td>{{ key.LastModified[0] }}</td>
+        <td><button ng-click="alert('hi')">View</button></td>
+    </tr>
+    </tbody>
+  </table>
 </div>
+
 
 <script src="js/libs/angular.js"></script>
 <script src="js/indexController.js"></script>
